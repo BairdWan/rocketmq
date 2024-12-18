@@ -58,7 +58,9 @@ public class NamesrvStartup {
 
     public static NamesrvController main0(String[] args) {
         try {
+            //Step1:nameServer初始化参数
             parseCommandlineAndConfigFile(args);
+            //Step2:根据启动属性创建NamesrvController实例，并初始化该实例，NameServerController为核心控制器
             NamesrvController controller = createAndStartNamesrvController();
             return controller;
         } catch (Throwable e) {
@@ -90,7 +92,6 @@ public class NamesrvStartup {
             System.exit(-1);
             return;
         }
-
         namesrvConfig = new NamesrvConfig();
         nettyServerConfig = new NettyServerConfig();
         nettyClientConfig = new NettyClientConfig();
